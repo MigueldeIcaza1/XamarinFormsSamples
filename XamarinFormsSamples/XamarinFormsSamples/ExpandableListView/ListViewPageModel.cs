@@ -23,7 +23,8 @@ namespace XamarinFormsSamples.ExpandableListView
                 if (_selectedPerson != value)
                 {
                     _selectedPerson = value;
-                    ExpandOrCollapseSelectedItem();
+                    // ExpandOrCollapseSelectedItem();
+                    _selectedPerson.FirstName = "Updated Value";
                 }
             }
         }
@@ -64,7 +65,20 @@ namespace XamarinFormsSamples.ExpandableListView
         }
 
         public int Id { get; set; }
-        public string FirstName { get; set; }
+        // public string FirstName { get; set; }
+        private string _firstName { get; set; }
+        public string FirstName
+        {
+            get { return _firstName; }
+            set
+            {
+                if (_firstName != value)
+                {
+                    _firstName = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
         public string LastName { get; set; }
         public string City { get; set; }
         public string MobileNo { get; set; }
